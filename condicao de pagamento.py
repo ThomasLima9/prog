@@ -15,13 +15,13 @@ while condicao <=0 or condicao >=5:
 if condicao == 1:
     print('Valor a pagar: ', produto - (produto*10) / (100))
 
-if condicao == 2:
+elif condicao == 2:
     print('Valor a pagar: ', produto - (produto*15) / (100))
     
-if condicao == 3:
+elif condicao == 3:
     print('Valor a pagar: ', produto )
 
-if condicao == 4:
+else:
     print('Valor a pagar: ', produto + (produto*10) / (100))
 
 #Condição com if's 1 a 4.

@@ -8,7 +8,7 @@ macas = int(input('Digite a quantidade de Macas: '))
 #Saida de dados
 
 while macas <= 0:
-    print('Digite um numero valido cuzao: ')
+    print('Digite um numero valido: ')
     int(input('Digite a quantidade de Macas: '))
 
 if macas < 12:
