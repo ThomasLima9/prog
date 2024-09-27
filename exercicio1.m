@@ -55,4 +55,33 @@ vc = (sum((aux5-rc).^2+(aux6-rc).^2))/n; #Variancia da carteira composta
 sc = sqrt(vc); #risco da carita composta por 50% de A1 e 50% de A2
 plot(sc,rc,'c*')
 
+TABALHO -------------------TABALHO----------------------TABALHO
+
+### EXERCICIO (IMB, ALCOA E GM)
+#### CRIANDO UMA CARTEIRA DE INVESTIMENTO COM RISCO/RETORNO DOS 3 ATIVOS 
+#### OBJETIVO: CALCULAR RISCO/RETORNO DE 100% ( IBM, ALCOA e GM) e (50% ALCOA , 20% IBM e 30% GM)
+
+## Retorno passado dos 3 ativos:
+
+IBM = [12.05;15.27; -4.12; 1.57; 3.16; -2.79; -8.97; -1.18; 1.07; 12.75; 7.48; -0.94];
+
+tIBM= length(IBM); #TAMANHO DO ATIVO(IBM)
+rIBM= sum(IBM)/tIBM; #RETORNO MEDIO DO ATIVO(IBM)
+auxIBM = (IBM-rIBM).^2; #variavel auxiliar IBM 
+
+disp(rIBM);
+
+ALCOA = [14.09;2.96;7.19;24.39;0.06;6.52;-8.75;2.82;-13.97;-8.06;-0.70;8.80];
+tALCOA= length(ALCOA); #TAMANHO DO ATIVO(IBM);
+rALCOA= sum(ALCOA)/tALCOA; #RETORNO MEDIO DO ATIVO(IBM);
+auxALCOA = (ALCOA-rALCOA).^2; #variavel auxiliar ALCOA
+
+disp(rALCOA);
+
+GM = [25.20;2.86;5.45;4.56;3.72;0.29;5.38;-2.97;1.52;10.75;3.79;1.32;];
+tGM= length(GM); #TAMANHO DO ATIVO(IBM);
+rGM= sum(GM)/tGM; #RETORNO MEDIO DO ATIVO(IBM);
+auxGM = (GM-rGM).^2; #variavel auxiliar GM
+
+disp(rGM);
 
