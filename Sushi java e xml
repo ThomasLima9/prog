@@ -1,0 +1,124 @@
+package com.exemplo.calculadorapratosemjava;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.GridLayout;
+import android.widget.Label;
+import android.widget.TextView;
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
+    private EditText amarelo, azul, vermelho, verde, preto;
+    private TextView resultadoPratos, resultadoValor;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        // Referenciando os componentes
+        amarelo = findViewById(R.id.amarelo);
+        azul = findViewById(R.id.azul);
+        vermelho = findViewById(R.id.vermelho);
+        verde = findViewById(R.id.verde);
+        preto = findViewById(R.id.preto);
+        resultadoPratos = findViewById(R.id.resultado_pratos);
+        resultadoValor = findViewById(R.id.resultado_valor);
+        Button calcular = findViewById(R.id.calcular);
+
+        // Configurando o botão de calcular
+        calcular.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                calcularTotal();
+            }
+        });
+    }
+
+    private void calcularTotal() {
+        try {
+            int pratoAmarelo = Integer.parseInt(amarelo.getText().toString());
+            int pratoAzul = Integer.parseInt(azul.getText().toString());
+            int pratoVermelho = Integer.parseInt(vermelho.getText().toString());
+            int pratoVerde = Integer.parseInt(verde.getText().toString());
+            int pratoPreto = Integer.parseInt(preto.getText().toString());
+
+            // Preços
+            double precoAmarelo = 4.45;
+            double precoAzul = 5.45;
+            double precoVermelho = 6.45;
+            double precoVerde = 7.45;
+            double precoPreto = 8.45;
+
+            int totalPratos = pratoAmarelo + pratoAzul + pratoVermelho + pratoVerde + pratoPreto;
+            double totalValor = (pratoAmarelo * precoAmarelo) +
+                                (pratoAzul * precoAzul) +
+                                (pratoVermelho * precoVermelho) +
+                                (pratoVerde * precoVerde) +
+                                (pratoPreto * precoPreto);
+
+            // Exibir resultados
+            resultadoPratos.setText("Total de pratos: " + totalPratos);
+            resultadoValor.setText(String.format("Valor total: R$ %.2f", totalValor));
+
+        } catch (NumberFormatException e) {
+            resultadoPratos.setText("Erro: insira números válidos");
+        }
+    }
+}
+
+
+
+
+----------------------------------------------------------------------------------------------
+
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.gridlayout.widget.GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:columnCount="2"
+    android:padding="16dp">
+
+    <TextView android:text="Pratos Amarelos:" />
+    <EditText android:id="@+id/amarelo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView android:text="Pratos Azuis:" />
+    <EditText android:id="@+id/azul"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView android:text="Pratos Vermelhos:" />
+    <EditText android:id="@+id/vermelho"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView android:text="Pratos Verdes:" />
+    <EditText android:id="@+id/verde"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView android:text="Pratos Pretos:" />
+    <EditText android:id="@+id/preto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button android:id="@+id/calcular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Calcular" />
+
+    <TextView android:id="@+id/resultado_pratos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_columnSpan="2" />
+
+    <TextView android:id="@+id/resultado_valor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_columnSpan="2" />
+
+</androidx.gridlayout.widget.GridLayout>
